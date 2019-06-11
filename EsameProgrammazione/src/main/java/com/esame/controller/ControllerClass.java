@@ -16,7 +16,7 @@ import com.esame.model.Metadata;
 import com.esame.model.Record;
 import com.esame.service.JsonParser;
 import com.esame.service.StatsService;
-import com.esame.util.statistic.StatsCalculator;
+import com.esame.util.other.StatsCalculator;
 import com.esame.model.Stats;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;

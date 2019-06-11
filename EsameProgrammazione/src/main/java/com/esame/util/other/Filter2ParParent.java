@@ -1,11 +1,11 @@
-package com.esame.util.filter;
+package com.esame.util.other;
 
 import java.util.ArrayList;
 
 public class Filter2ParParent {
 
-	public int parametro1;
-	public int parametro2;
+	protected int parametro1;
+	protected int parametro2;
 	
 	
 	public Filter2ParParent(Object parametro){

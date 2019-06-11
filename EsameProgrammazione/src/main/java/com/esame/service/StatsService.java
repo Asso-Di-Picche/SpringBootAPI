@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import com.esame.model.Record;
-import com.esame.util.statistic.StatsCalculator;;
+import com.esame.util.other.StatsCalculator;;
 
 public class StatsService {
 

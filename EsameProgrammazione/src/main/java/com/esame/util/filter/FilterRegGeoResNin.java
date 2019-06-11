@@ -1,6 +1,8 @@
 package com.esame.util.filter;
 
 import com.esame.model.Record;
+import com.esame.util.other.Filter;
+import com.esame.util.other.FilterArrayStringParent;
 
 public class FilterRegGeoResNin extends FilterArrayStringParent implements Filter {
 

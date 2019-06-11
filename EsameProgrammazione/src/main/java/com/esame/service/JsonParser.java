@@ -8,7 +8,7 @@ import java.util.Map;
 
 import com.esame.model.Record;
 import com.esame.service.FilterService;
-import com.esame.util.filter.Filter;
+import com.esame.util.other.Filter;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

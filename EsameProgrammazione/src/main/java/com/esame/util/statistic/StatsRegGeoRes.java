@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import com.esame.model.Record;
 import com.esame.model.StatsString;
+import com.esame.util.other.StatsCalculator;
+import com.esame.util.other.StatsParent;
 
 
 public class StatsRegGeoRes extends StatsParent implements StatsCalculator {
