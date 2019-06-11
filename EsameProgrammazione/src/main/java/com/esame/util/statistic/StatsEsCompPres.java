@@ -7,10 +7,10 @@ import com.esame.model.Record;
 import com.esame.model.StatsNum;
 import com.esame.service.Calculate;
 
-public class StasTotEsRicPres extends StatsParent implements StatsCalculator{
+public class StatsEsCompPres extends StatsParent implements StatsCalculator{
 
 	
-	public StasTotEsRicPres(ArrayList<Record> RecordList) {
+	public StatsEsCompPres(ArrayList<Record> RecordList) {
 		super(RecordList);
 	}
 
@@ -20,30 +20,30 @@ public class StasTotEsRicPres extends StatsParent implements StatsCalculator{
 		StatsNum retStats = new StatsNum();
 		
 		ArrayList<Integer> Arrayint = (ArrayList<Integer>) records.stream()
-	              .map(Record::getTotEsRicPres)
+	              .map(Record::getEsCompPres)
 	              .collect(Collectors.toList());
 		
 		double avg = records
 				.stream()
-	            .collect(Collectors.averagingInt(p -> p.getTotEsRicPres()));
+	            .collect(Collectors.averagingInt(p -> p.getEsCompPres()));
 		
 		Record min = records
-				.stream().min(Comparator.comparing( Record::getTotEsRicPres)).get();
+				.stream().min(Comparator.comparing( Record::getEsCompPres)).get();
 		
 		Record max = records
-				.stream().max(Comparator.comparing( Record::getTotEsRicPres)).get();
+				.stream().max(Comparator.comparing( Record::getEsCompPres)).get();
 		
 		double std = Calculate.StdDev(Arrayint, avg);
 		
-		int sum = records.stream().mapToInt(Record::getTotEsRicPres).sum();
+		int sum = records.stream().mapToInt(Record::getEsCompPres).sum();
 		
 		int count = (int) records.stream().count();
 		
 		
-		retStats.setField("TotEsRicPres");
+		retStats.setField("EsACompPres");
 		retStats.setAvg(avg);
-		retStats.setMin(min.getTotEsRicPres());
-		retStats.setMax(max.getTotEsRicPres());
+		retStats.setMin(min.getEsCompPres());
+		retStats.setMax(max.getEsCompPres());
 		retStats.setSum(sum);
 		retStats.setCount(count);
 		retStats.setStd(std); 
