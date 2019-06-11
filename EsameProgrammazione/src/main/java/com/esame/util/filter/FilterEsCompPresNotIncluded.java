@@ -1,6 +1,8 @@
 package com.esame.util.filter;
 
 import com.esame.model.Record;
+import com.esame.util.other.Filter;
+import com.esame.util.other.Filter2ParParent;
 
 public class FilterEsCompPresNotIncluded extends Filter2ParParent implements Filter  {
 	

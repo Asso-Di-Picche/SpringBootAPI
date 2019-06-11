@@ -3,9 +3,10 @@ package com.esame.service;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import com.esame.util.filter.Filter;
+
 import com.esame.database.DatabaseClass;
 import com.esame.model.Record;
+import com.esame.util.other.Filter;
 
 
 

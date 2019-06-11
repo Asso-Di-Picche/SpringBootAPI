@@ -1,10 +1,10 @@
-package com.esame.util.filter;
+package com.esame.util.other;
 
 import java.util.ArrayList;
 
 public class FilterArrayStringParent {
 
-	public ArrayList<String> param = new ArrayList<String>();
+	protected ArrayList<String> param = new ArrayList<String>();
 
 	
 	public FilterArrayStringParent(Object parametri) {

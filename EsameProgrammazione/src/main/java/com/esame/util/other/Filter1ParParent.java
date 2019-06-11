@@ -1,8 +1,8 @@
-package com.esame.util.filter;
+package com.esame.util.other;
 
 public class Filter1ParParent {
 
-	int parametroFiltro;
+	protected int parametroFiltro;
 	
 	public Filter1ParParent(Object parametroFiltro){
 		

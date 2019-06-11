@@ -1,4 +1,4 @@
-package com.esame.util.filter;
+package com.esame.util.other;
 
 import com.esame.model.Record;
 
