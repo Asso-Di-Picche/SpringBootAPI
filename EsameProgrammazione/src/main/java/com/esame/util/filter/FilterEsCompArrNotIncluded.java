@@ -13,7 +13,7 @@ public class FilterEsCompArrNotIncluded extends Filter2ParParent implements Filt
 
 	public boolean filter(Record record) {
 		
-		if( record.getEsCompArr() <= parametro1 & record.getEsCompArr() >= parametro2) {
+		if( record.getEsCompArr() <= parametro1 | record.getEsCompArr() >= parametro2) {
 			return true;
 		}
 		return false;

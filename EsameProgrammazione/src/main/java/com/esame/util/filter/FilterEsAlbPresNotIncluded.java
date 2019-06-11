@@ -13,7 +13,7 @@ public class FilterEsAlbPresNotIncluded extends Filter2ParParent implements Filt
 
 	public boolean filter(Record record) {
 		
-		if( record.getEsAlbPres() <= parametro1 & record.getEsAlbPres() >= parametro2) {
+		if( record.getEsAlbPres() <= parametro1 | record.getEsAlbPres() >= parametro2) {
 			return true;
 		}
 		return false;

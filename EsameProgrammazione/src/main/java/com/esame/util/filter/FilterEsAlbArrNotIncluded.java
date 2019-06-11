@@ -13,7 +13,7 @@ public class FilterEsAlbArrNotIncluded extends Filter2ParParent implements Filte
 
 	public boolean filter(Record record) {
 		
-		if( record.getEsAlbArr() <= parametro1 & record.getEsAlbArr() >= parametro2) {
+		if( record.getEsAlbArr() <= parametro1 | record.getEsAlbArr() >= parametro2) {
 			return true;
 		}
 		return false;

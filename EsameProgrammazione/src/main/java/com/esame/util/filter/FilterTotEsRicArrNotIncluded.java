@@ -13,7 +13,7 @@ public class FilterTotEsRicArrNotIncluded extends Filter2ParParent implements Fi
 
 	public boolean filter(Record record) {
 		
-		if( record.getTotEsRicArr() <= parametro1 & record.getTotEsRicArr() >= parametro2) {
+		if( record.getTotEsRicArr() <= parametro1 | record.getTotEsRicArr() >= parametro2) {
 			return true;
 		}
 		return false;
