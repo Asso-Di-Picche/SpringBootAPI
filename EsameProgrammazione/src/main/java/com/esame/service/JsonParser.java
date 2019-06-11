@@ -25,10 +25,12 @@ public class JsonParser {
 		
 		for(Map.Entry<String, Object> entry : result.entrySet()) {
 			
+			//ad ogni ciclo ripulisce l array "filteredArray"
 			filteredArray = new ArrayList<Record>();
 		    String column = entry.getKey();
 		    Object filterParam = entry.getValue();
 		    filteredArray = JsonParserOperator(column, filterParam, previousArray);
+		    //ripulisce "previousArray" prima di riempirlo con "filteredArray"
 		    previousArray = new ArrayList<Record>();
 		    previousArray.addAll(filteredArray);
 		}
@@ -40,9 +42,9 @@ public class JsonParser {
 													   Object filterParam, 
 												       ArrayList<Record> previousArray) throws JsonParseException, JsonMappingException, IOException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException, SecurityException{
 		
-		ArrayList<Record> filteredArray = new ArrayList<Record>();
 		String type="";
 		Filter filter;
+		ArrayList<Record> filteredArray = new ArrayList<Record>();
 		FilterService filtroService = new FilterService();
 		HashMap<String, Object> result = new ObjectMapper().convertValue(filterParam, HashMap.class);
 		
