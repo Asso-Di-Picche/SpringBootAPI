@@ -15,7 +15,7 @@ public class FilterService {
 	private static ArrayList<Record> records = DatabaseClass.getRecords();
 	
 	
-	public FilterService() {}  
+	public FilterService() {}  //si può togliere ??
 	
 	
 	// generazione errori ClassNotFoundException se nome filtro non coretto
