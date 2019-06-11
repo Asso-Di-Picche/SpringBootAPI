@@ -20,7 +20,7 @@ import com.esame.util.statistic.StatsCalculator;
 import com.esame.model.Stats;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-
+ 
 
 @RestController
 public class ControllerClass {
