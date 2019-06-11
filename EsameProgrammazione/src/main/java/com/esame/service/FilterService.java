@@ -11,7 +11,7 @@ import com.esame.model.Record;
 
 public class FilterService {
 
-	final private String path = "com.esame.util.filter.";
+	private final static String path = "com.esame.util.filter.";
 	private static ArrayList<Record> records = DatabaseClass.getRecords();
 	
 	
@@ -21,7 +21,7 @@ public class FilterService {
 	// generazione errori ClassNotFoundException se nome filtro non coretto
 	// gli altri errori non dovrebbero verificarsi mai, errori interni 
 	//
-	public Filter instanceFilter(String column,String operator,Object param) 
+	public static Filter instanceFilter(String column,String operator,Object param) 
 			throws ClassNotFoundException, LinkageError,SecurityException, NoSuchMethodException, 
 			InstantiationException, IllegalAccessException, IllegalArgumentException, 
 			InvocationTargetException {
