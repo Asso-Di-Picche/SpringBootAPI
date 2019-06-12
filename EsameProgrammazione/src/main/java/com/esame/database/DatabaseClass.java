@@ -91,10 +91,13 @@ public class DatabaseClass {
 	}
 	
 	
-	public static void download(String url, String fileName) throws Exception {
+	public static void download(String url, String fileName){
 		try (InputStream in = URI.create(url).toURL().openStream()) {
 			Files.copy(in, Paths.get(fileName), StandardCopyOption.REPLACE_EXISTING);
 			records = csvParser.csvParsing("configFile/dataset.csv");
+		} catch ( IOException e) {
+			//errore in scrittura
+			e.printStackTrace();
 		}
 	}
 	

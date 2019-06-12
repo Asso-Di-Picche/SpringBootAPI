@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.PatternSyntaxException;
 
 import com.esame.model.Record;
 
@@ -50,7 +51,9 @@ public class CsvParser {
 					
 				} catch(NumberFormatException e) {
 					
-				} 
+				} catch(PatternSyntaxException e) {
+					 //if the regular expression's syntax is invalid in split
+				}
 				
 			} 
 	    
