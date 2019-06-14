@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.esame.exception.FilterIllegalArgumentException;
+import com.esame.exception.FilterNotFoundException;
+import com.esame.exception.InternalGeneralException;
 import com.esame.model.Record;
 import com.esame.service.FilterService;
 import com.esame.util.other.Filter;
@@ -17,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JsonParser {
 
 	
-	public static ArrayList<Record> JsonParserColonna(Object filter) throws JsonParseException, JsonMappingException, IOException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException, SecurityException{
+	public static ArrayList<Record> JsonParserColonna(Object filter) throws JsonParseException, JsonMappingException, IOException, FilterNotFoundException, FilterIllegalArgumentException, InternalGeneralException{
 		
 		ArrayList<Record> previousArray = new ArrayList<Record>();
 		ArrayList<Record> filteredArray = new ArrayList<Record>();
@@ -40,7 +43,7 @@ public class JsonParser {
 	
 	public static ArrayList<Record> JsonParserOperator(String column, 
 													   Object filterParam, 
-												       ArrayList<Record> previousArray) throws JsonParseException, JsonMappingException, IOException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException, SecurityException{
+												       ArrayList<Record> previousArray) throws JsonParseException, JsonMappingException, IOException,InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
 		
 		String type="";
 		Filter filter;
@@ -56,7 +59,7 @@ public class JsonParser {
 		    if(operator.equals("type") || operator.equals("Type")) {
 		    	type = (String) value;
 		    	if(!(value.equals("and")) && !(value.equals("or"))) {
-		    		throw new IllegalArgumentException("'and' o 'or' expected after 'type'");
+		    		throw new FilterIllegalArgumentException("'and' o 'or' expected after 'type'");
 		    	}
 		    	continue;
 		    }

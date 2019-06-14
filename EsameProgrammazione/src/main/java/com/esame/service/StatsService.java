@@ -4,22 +4,20 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import com.esame.model.Record;
-import com.esame.util.other.StatsCalculator;;
+import com.esame.util.other.StatsCalculator;
+import com.esame.exception.InternalGeneralException;
+import com.esame.exception.StatsNotFoundException;
 
 public class StatsService {
 
 	private final static String path = "com.esame.util.statistic.";
 	
 	
-	// generazione errori ClassNotFoundException se nome calolatore statistica non coretto
-	// gli altri errori non dovrebbero verificarsi mai, errori interni 
 	// column -> campo su cui si vuol calcolare la statistica
 	// records -> elementi su cui si vuol calcolare la statistica
 	
 	public static StatsCalculator instanceStatsCalculator(String column, ArrayList<Record> records) 
-			throws ClassNotFoundException, LinkageError,SecurityException, NoSuchMethodException, 
-			InstantiationException, IllegalAccessException, IllegalArgumentException, 
-			InvocationTargetException {
+			throws InternalGeneralException, StatsNotFoundException {
 		
 		StatsCalculator statsCalculator;
 		
@@ -36,15 +34,24 @@ public class StatsService {
 
 	    //entra qui se il nome di StatsCalculator non è corretto 
 	    catch(ClassNotFoundException e){
-	    	throw new ClassNotFoundException("Impossible to calculate statistics for the field: '"
+	    	throw new StatsNotFoundException("Impossible to calculate statistics for the field: '"
 	    			                         +column+"' does not exist");
 	    }
 		
-		//entra qui se sbagliate maiuscole e minuscole
+	    //entra qui se sbagliate maiuscole e minuscole
 	    catch(NoClassDefFoundError e){
-	    	throw new ClassNotFoundException("Impossible to calculate statistics for the field: '"
+	    	throw new StatsNotFoundException("Impossible to calculate statistics for the field: '"
 	    			+column+"' probably uppercase and lowercase error");
 	    }
+	    
+	    //altri errori interni (lato server)
+	    catch( LinkageError | NoSuchMethodException | SecurityException |IllegalArgumentException  
+	    	   | InstantiationException | IllegalAccessException | InvocationTargetException e ) {
+	    	
+	    	e.printStackTrace();
+	    	throw new InternalGeneralException("try later");
+	    }
+	    
 	    
 	    return statsCalculator;
 	    
