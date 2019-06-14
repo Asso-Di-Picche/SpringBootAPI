@@ -5,8 +5,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import com.esame.database.DatabaseClass;
+import com.esame.exception.FilterIllegalArgumentException;
+import com.esame.exception.FilterNotFoundException;
 import com.esame.model.Record;
 import com.esame.util.other.Filter;
+import com.esame.exception.InternalGeneralException;
 
 
 
@@ -20,9 +23,7 @@ public class FilterService {
 	// gli altri errori non dovrebbero verificarsi mai, errori interni 
 	//
 	public static Filter instanceFilter(String column,String operator,Object param) 
-			throws ClassNotFoundException, LinkageError,SecurityException, NoSuchMethodException, 
-			InstantiationException, IllegalAccessException, IllegalArgumentException, 
-			InvocationTargetException {
+		   throws FilterNotFoundException, FilterIllegalArgumentException,InternalGeneralException{
 		
 		Filter filtro;
 		String filterName = new String("Filter"+column+operator);
@@ -39,23 +40,30 @@ public class FilterService {
 		
 	    //entra qui se il nome filtro non è corretto 
 	    catch(ClassNotFoundException e){
-	    	throw new ClassNotFoundException("The filter in field: '"+column+"' with operator: '"+
+	    	throw new FilterNotFoundException("The filter in field: '"+column+"' with operator: '"+
 	                                          operator +"' does not exist");
 	    }
 		
 		//entra qui se sbagliate maiuscole e minuscole
 	    catch(NoClassDefFoundError e){
-	    	throw new ClassNotFoundException(
+	    	throw new FilterNotFoundException(
 	    			"Error typing: '"+filterName+"' uppercase and lowercase error");
 	    }
 
 	    //entra qui se il costruttore chiamato da newInstance lancia un eccezione 
 	   	catch (InvocationTargetException e) {  
 	   		//genero una nuova eccezione 
-	   		throw new IllegalArgumentException(e.getTargetException().getMessage()
+	   		throw new FilterIllegalArgumentException(e.getTargetException().getMessage()
 	   				+ " Expected in '"+column+"'");
 	   	}
-	   
+
+	    catch(LinkageError | NoSuchMethodException | SecurityException 
+		    	   | InstantiationException | IllegalAccessException e ) {
+		    	
+		    	e.printStackTrace();
+		    	throw new InternalGeneralException("try later");
+		    }
+
 		
 	    return filtro;
 	    

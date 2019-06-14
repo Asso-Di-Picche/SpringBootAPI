@@ -9,7 +9,7 @@ public class Filter1ParParent {
 		if(parametroFiltro instanceof Integer ) { 
 			this.parametroFiltro =(Integer)parametroFiltro;
 		}else {
-			throw new IllegalArgumentException("il parametro deve essere un intero");
+			throw new IllegalArgumentException("Type: Interger ");
 		}
 		
 	}
@@ -19,7 +19,7 @@ public class Filter1ParParent {
 		if(parametroFiltro instanceof Integer ) { 
 			this.parametroFiltro =(Integer)parametroFiltro;
 		}else {
-			throw new IllegalArgumentException("il parametro deve essere un intero");
+			throw new IllegalArgumentException("Type: Interger ");
 		}
 	}
 

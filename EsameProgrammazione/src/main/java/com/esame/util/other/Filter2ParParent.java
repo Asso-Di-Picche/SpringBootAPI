@@ -13,24 +13,24 @@ public class Filter2ParParent {
 		if(parametro instanceof ArrayList<?>) {
 				
 			if( ((ArrayList) parametro).size() != 2) {
-				throw new IndexOutOfBoundsException("inserire due soli interi") ;
+				throw new IndexOutOfBoundsException("2 Integer ") ;
 			}//control of array length 
 												
 			if(((ArrayList) parametro).get(0) instanceof Integer) {
 				parametro1 = (int) ((ArrayList) parametro).get(0) ;
-			}else {throw new IllegalArgumentException("Parametri devono essere interi");}
+			}else {throw new IllegalArgumentException("Type: Integer ");}
 					
 			if(((ArrayList) parametro).get(1) instanceof Integer) {
 				parametro2 = (int) ((ArrayList) parametro).get(1) ;
-			}else{throw new IllegalArgumentException("Parametri devono essere interi");}			
+			}else{throw new IllegalArgumentException("Type: Integer ");}			
 					
 					
 		}else {
-			throw new IllegalArgumentException("il parametro deve essere un arrayList di interi");
+			throw new IllegalArgumentException("Type: Array of 2 Integer ");
 		}
 		
 		if(parametro2 < parametro1) {
-			throw new IllegalArgumentException("il parametro 2 non può essere minore del parametro 1");
+			throw new IllegalArgumentException("Integer two must be greater than Integer one ");
 		}
 	}
 
@@ -42,24 +42,24 @@ public class Filter2ParParent {
 		if(parametro instanceof ArrayList<?>) {
 			
 			if( ((ArrayList) parametro).size() != 2) {
-				throw new IndexOutOfBoundsException("inserire due soli interi") ;
+				throw new IndexOutOfBoundsException("2 Integer ") ;
 			}//control of array length 
 												
 			if(((ArrayList) parametro).get(0) instanceof Integer) {
 				parametro1 = (int) ((ArrayList) parametro).get(0) ;
-			}else {throw new IllegalArgumentException("Parametri devono essere interi");}
+			}else {throw new IllegalArgumentException("Type: Integer ");}
 					
 			if(((ArrayList) parametro).get(1) instanceof Integer) {
 				parametro2 = (int) ((ArrayList) parametro).get(1) ;
-			}else{throw new IllegalArgumentException("Parametri devono essere interi");}			
+			}else{throw new IllegalArgumentException("Type: Integer ");}			
 					
 			
 		}else {
-			throw new IllegalArgumentException("il parametro deve essere un arrayList di interi");
+			throw new IllegalArgumentException("Type: Array of 2 Integer ");
 		}
 		
 		if(parametro2 < parametro1) {
-			throw new IllegalArgumentException("il parametro 2 non può essere minore del parametro 1");
+			throw new IllegalArgumentException("Integer two must be greater than Integer one ");
 		}
 	}
 	

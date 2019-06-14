@@ -16,12 +16,12 @@ public class FilterArrayStringParent {
 				if(ele instanceof String) {
 					param.add((String)ele);
 				}else {
-					throw new IllegalArgumentException("Parametri devono essere Stringhe");
+					throw new IllegalArgumentException("Type: String ");
 				}
 			}
 
 		}else {			
-			throw new IllegalArgumentException("Paremetri devono essere un Array");
+			throw new IllegalArgumentException("Type: Array ");
 		}
 	}
 	
