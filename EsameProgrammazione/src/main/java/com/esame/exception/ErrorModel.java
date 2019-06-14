@@ -5,23 +5,23 @@ import java.time.Instant;
 import org.springframework.http.HttpStatus;
 
 public class ErrorModel {
-
-	private final HttpStatus httpstatus;
+	
+	private final HttpStatus httpStatus;
 	private final Instant instant;
 	private final String errorName;
-	private final String expecting;
+	private final String message;
 
 	
-	public ErrorModel(HttpStatus httpstatus, Instant instant, String errorName, String expecting) {
+	public ErrorModel(HttpStatus httpStatus, Instant instant, String errorName, String message) {
 
-		this.httpstatus = httpstatus;
+		this.httpStatus = httpStatus;
 		this.instant = instant;
 		this.errorName = errorName;
-		this.expecting = expecting;
+		this.message = message;
 	}
 
-	public HttpStatus getHttpstatus() {
-		return httpstatus;
+	public HttpStatus getHttpStatus() {
+		return httpStatus;
 	}
 
 	public Instant getInstant() {
@@ -32,7 +32,8 @@ public class ErrorModel {
 		return errorName;
 	}
 
-	public String getExpecting() {
-		return expecting;
+	public String getMessage() {
+		return message;
 	}
 }
+

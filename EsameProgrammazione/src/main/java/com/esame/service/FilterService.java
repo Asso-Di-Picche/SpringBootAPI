@@ -39,7 +39,7 @@ public class FilterService {
 		
 	    //entra qui se il nome filtro non è corretto 
 	    catch(ClassNotFoundException e){
-	    	throw new ClassNotFoundException("The filter in the field: '"+column+"' with operator: '"+
+	    	throw new ClassNotFoundException("The filter in field: '"+column+"' with operator: '"+
 	                                          operator +"' does not exist");
 	    }
 		

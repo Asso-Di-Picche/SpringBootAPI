@@ -53,8 +53,11 @@ public class JsonParser {
 		    Object value = entry.getValue();
 		    // Se operatore è type allora guarda se il valore (and o or)
 		    // lancia il metodo runfilter corrispondente
-		    if(operator.equals("type")) {
+		    if(operator.equals("type") || operator.equals("Type")) {
 		    	type = (String) value;
+		    	if(!(value.equals("and")) && !(value.equals("or"))) {
+		    		throw new IllegalArgumentException("'and' o 'or' expected after 'type'");
+		    	}
 		    	continue;
 		    }
 		    

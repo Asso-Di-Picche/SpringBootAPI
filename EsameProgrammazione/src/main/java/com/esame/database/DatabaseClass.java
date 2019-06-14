@@ -64,6 +64,9 @@ public class DatabaseClass {
 				while ( ( line = buf.readLine() ) != null ) {
 					data+= line;
 				}
+			} catch (IOException e) {
+				System.out.println(e.getClass().getCanonicalName()
+				+"Errore in com.example.demo.service.DatabaseClass.java: Operazione di I/O interrotte");	
 			} finally {
 				in.close();
 			}
@@ -84,11 +87,12 @@ public class DatabaseClass {
 			}
 			
 		} catch(ParseException e) {
-			System.out.println(
-				"Errore in in com.example.demo.service.DatabaseClass.java: "
+			System.out.println(e.getClass().getCanonicalName()
+				+": Errore in in com.example.demo.service.DatabaseClass.java: "
 				+ "Errore nel parsing String - JsonObject");
 		} catch (IOException e) {
-			System.out.println("Errore in in com.example.demo.service.DatabaseClass.java: "
+			System.out.println(e.getClass().getCanonicalName()
+				+": Errore in in com.example.demo.service.DatabaseClass.java: "
 				+ "Controlla la validità dell URL o Verifica la tua connessione internet");
 		}
 	}
@@ -98,11 +102,11 @@ public class DatabaseClass {
 		try (InputStream in = URI.create(url).toURL().openStream()) {
 			Files.copy(in, Paths.get(fileName), StandardCopyOption.REPLACE_EXISTING);
 			records = CsvParser.csvParsing("configFile/dataset.csv");
-		} catch ( IOException e) {
+		} catch ( Exception e) {
 			//errore in scrittura
-			System.out.println("Errore in in com.example.demo.service.DatabaseClass.java: "
+			System.out.println(e.getClass().getCanonicalName()
+					+": Errore in in com.example.demo.service.DatabaseClass.java: "
 					+ "Errore nella copia del File nella cartella configFile");
 		}
 	}
-	
 }

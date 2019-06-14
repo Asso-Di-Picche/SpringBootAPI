@@ -62,17 +62,17 @@ public class CsvParser {
 			try {
 				br.close();
 	        } catch (IOException e) {
-	        	System.out.println(e.toString()
-	        	+"Errore in in com.example.demo.service.ParseCsv.java: Chiusura File");
-	        }
+	        	System.out.println(e.getClass().getCanonicalName()
+	    	        	+"Errore in in com.example.demo.service.ParseCsv.java: Chiusura File");
+	    	        }
 	       
 			
 		} catch (FileNotFoundException e) {
-			System.out.println(e.toString()
+			System.out.println(e.getClass().getCanonicalName()
 		    +"Errore in com.example.demo.service.ParseCsv.java: File non trovato");
 		} catch (IOException e) {
-			System.out.println(e.toString()
-			+"Errore in com.example.demo.service.ParseCsv.java: Operazioni di I/O interrotte");
+			System.out.println(e.getClass().getCanonicalName()
+			+"Errore in com.example.demo.service.ParseCsv.java: Operazione di I/O interrotte");
 		}
 		
 		return records;
