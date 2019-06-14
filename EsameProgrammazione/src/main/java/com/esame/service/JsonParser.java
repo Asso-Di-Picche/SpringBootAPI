@@ -1,7 +1,6 @@
 package com.esame.service;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JsonParser {
 
 	
-	public static ArrayList<Record> JsonParserColonna(Object filter) throws JsonParseException, JsonMappingException, IOException, FilterNotFoundException, FilterIllegalArgumentException, InternalGeneralException{
+	public static ArrayList<Record> JsonParserColonna(Object filter) throws InternalGeneralException{
 		
 		ArrayList<Record> previousArray = new ArrayList<Record>();
 		ArrayList<Record> filteredArray = new ArrayList<Record>();
@@ -32,7 +31,13 @@ public class JsonParser {
 			filteredArray = new ArrayList<Record>();
 		    String column = entry.getKey();
 		    Object filterParam = entry.getValue();
-		    filteredArray = JsonParserOperator(column, filterParam, previousArray);
+		    try {
+				filteredArray = JsonParserOperator(column, filterParam, previousArray);
+			} catch (IllegalArgumentException| ClassNotFoundException 
+					| SecurityException	| IOException e) {
+
+				throw new InternalGeneralException();
+			}
 		    //ripulisce "previousArray" prima di riempirlo con "filteredArray"
 		    previousArray = new ArrayList<Record>();
 		    previousArray.addAll(filteredArray);

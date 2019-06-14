@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.esame.database.DatabaseClass;
+
+import com.esame.exception.InternalGeneralException;
 import com.esame.exception.FilterIllegalArgumentException;
 import com.esame.exception.FilterNotFoundException;
 import com.esame.exception.InternalGeneralException;
@@ -41,20 +43,19 @@ public class ControllerClass {
 		return DatabaseClass.getRecords();
 	}
 	
+
 	@RequestMapping(value = "data", method=RequestMethod.POST)
-	public ArrayList<Record> getDataWithPost(@RequestBody Object filter) 
-			throws ParseException, InternalGeneralException, FilterNotFoundException, 
-			FilterIllegalArgumentException, IOException {
+	public ArrayList<Record> getDataWithPost(@RequestBody Object filter) throws InternalGeneralException {
+
 		
 		return JsonParser.JsonParserColonna(filter);
 	}
 	
 	@RequestMapping(value = "stats", method=RequestMethod.POST)
+
 	public Stats getStats(@RequestParam(value = "field") String column,
-									  @RequestBody Object filter)
-			throws JsonParseException, JsonMappingException, IOException, FilterNotFoundException, 
-			FilterIllegalArgumentException, InternalGeneralException, StatsNotFoundException {
-		
+									  @RequestBody Object filter) throws InternalGeneralException, StatsNotFoundException {
+
 		
 		ArrayList<Record> filteredArray = JsonParser.JsonParserColonna(filter);
 		StatsCalculator sc = StatsService.instanceStatsCalculator(column, filteredArray);
