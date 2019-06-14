@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.esame.exception.InternalGeneralException;
 import com.esame.model.Record;
 import com.esame.service.FilterService;
 import com.esame.util.other.Filter;
@@ -17,7 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JsonParser {
 
 	
-	public static ArrayList<Record> JsonParserColonna(Object filter) throws JsonParseException, JsonMappingException, IOException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException, SecurityException{
+	public static ArrayList<Record> JsonParserColonna(Object filter) throws InternalGeneralException {
 		
 		ArrayList<Record> previousArray = new ArrayList<Record>();
 		ArrayList<Record> filteredArray = new ArrayList<Record>();
@@ -29,7 +30,14 @@ public class JsonParser {
 			filteredArray = new ArrayList<Record>();
 		    String column = entry.getKey();
 		    Object filterParam = entry.getValue();
-		    filteredArray = JsonParserOperator(column, filterParam, previousArray);
+		    try {
+				filteredArray = JsonParserOperator(column, filterParam, previousArray);
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | ClassNotFoundException | NoSuchMethodException 
+					| SecurityException	| IOException e) {
+
+				throw new InternalGeneralException();
+			}
 		    //ripulisce "previousArray" prima di riempirlo con "filteredArray"
 		    previousArray = new ArrayList<Record>();
 		    previousArray.addAll(filteredArray);

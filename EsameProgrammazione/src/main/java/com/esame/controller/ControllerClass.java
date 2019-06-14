@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.esame.database.DatabaseClass;
+import com.esame.exception.InternalGeneralException;
 import com.esame.model.Metadata;
 import com.esame.model.Record;
 import com.esame.service.JsonParser;
@@ -32,20 +33,20 @@ public class ControllerClass {
 	}
 	
 	@RequestMapping(value = "data", method=RequestMethod.GET)
-	public ArrayList<Record> getDataWithGet() throws JsonParseException, JsonMappingException, IOException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException, SecurityException, ParseException{
+	public ArrayList<Record> getDataWithGet() {
 		
 		return DatabaseClass.getRecords();
 	}
 	
 	@RequestMapping(value = "data", method=RequestMethod.POST)
-	public ArrayList<Record> getDataWithPost(@RequestBody Object filter) throws JsonParseException, JsonMappingException, IOException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException, SecurityException, ParseException{
+	public ArrayList<Record> getDataWithPost(@RequestBody Object filter) throws InternalGeneralException{
 		
 		return JsonParser.JsonParserColonna(filter);
 	}
 	
 	@RequestMapping(value = "stats", method=RequestMethod.POST)
 	public Stats getStats(@RequestParam(value = "field") String column,
-									  @RequestBody Object filter) throws JsonParseException, JsonMappingException, IOException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException, SecurityException{
+									  @RequestBody Object filter) throws InternalGeneralException, ClassNotFoundException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, LinkageError{
 		
 		
 		ArrayList<Record> filteredArray = JsonParser.JsonParserColonna(filter);
