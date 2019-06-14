@@ -14,7 +14,7 @@ public class CsvParser {
 	String csvFile;
 	static BufferedReader br = null;                                     
 	static String line = "";
-	static int riga = 1;
+	static int row = 1;
 	static ArrayList<Record> records = new ArrayList<>();
 		
 
@@ -51,12 +51,12 @@ public class CsvParser {
 			        records.add(oggettoRecord);
 			        
 				} catch(ArrayIndexOutOfBoundsException e) {
-					System.out.println("Riga #"+riga+"  "+e.toString()
+					System.out.println("Row #"+row+"  "+e.toString()
 									  +" parametri inseriti. Aspettati 9");
 				} catch(NumberFormatException e) {
-					System.out.println("Riga #"+riga+"  "+e.toString());
+					System.out.println("Row #"+row+"  "+e.toString());
 				} 
-				riga++;
+				row++;
 			}
 	     
 			try {

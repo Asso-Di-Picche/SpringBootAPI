@@ -1,6 +1,5 @@
 package com.esame.service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,15 +10,13 @@ import com.esame.exception.InternalGeneralException;
 import com.esame.model.Record;
 import com.esame.service.FilterService;
 import com.esame.util.other.Filter;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class JsonParser {
 
 	
-	public static ArrayList<Record> JsonParserColonna(Object filter) throws InternalGeneralException{
+	public static ArrayList<Record> JsonParserColonna(Object filter) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
 		
 		ArrayList<Record> previousArray = new ArrayList<Record>();
 		ArrayList<Record> filteredArray = new ArrayList<Record>();
@@ -33,11 +30,11 @@ public class JsonParser {
 		    Object filterParam = entry.getValue();
 		    try {
 				filteredArray = JsonParserOperator(column, filterParam, previousArray);
-			} catch (IllegalArgumentException| ClassNotFoundException 
-					| SecurityException	| IOException e) {
+			} catch (  SecurityException e) {
 
-				throw new InternalGeneralException();
-			}
+				throw new InternalGeneralException("Error in parsing I/O operation");
+				
+			} 
 		    //ripulisce "previousArray" prima di riempirlo con "filteredArray"
 		    previousArray = new ArrayList<Record>();
 		    previousArray.addAll(filteredArray);
@@ -48,7 +45,7 @@ public class JsonParser {
 	
 	public static ArrayList<Record> JsonParserOperator(String column, 
 													   Object filterParam, 
-												       ArrayList<Record> previousArray) throws JsonParseException, JsonMappingException, IOException,InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
+												       ArrayList<Record> previousArray) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 		
 		String type="";
 		Filter filter;
