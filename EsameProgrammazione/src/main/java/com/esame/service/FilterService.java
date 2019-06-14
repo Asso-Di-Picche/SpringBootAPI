@@ -16,9 +16,6 @@ public class FilterService {
 	private static ArrayList<Record> records = DatabaseClass.getRecords();
 	
 	
-	public FilterService() {}  //si può togliere ??
-	
-	
 	// generazione errori ClassNotFoundException se nome filtro non coretto
 	// gli altri errori non dovrebbero verificarsi mai, errori interni 
 	//
@@ -28,14 +25,38 @@ public class FilterService {
 			InvocationTargetException {
 		
 		Filter filtro;
-	    String ClassFilterName = path.concat("Filter"+column+operator);
+		String filterName = new String("Filter"+column+operator);
+		String ClassFilterName = path.concat(filterName);
 	    
-	    Class<?> cls = Class.forName(ClassFilterName); //seleziono la classe
+		try {
+			
+			Class<?> cls = Class.forName(ClassFilterName); //seleziono la classe
 		
-	    Constructor<?> ct = cls.getDeclaredConstructor(Object.class); //seleziono il costruttore
+			Constructor<?> ct = cls.getDeclaredConstructor(Object.class); //seleziono il costruttore
 	    
-	    filtro =(Filter)ct.newInstance(param);  //instanzo oggetto filtro
-	    
+			filtro =(Filter)ct.newInstance(param);  //istanzo oggetto filtro
+		}
+		
+	    //entra qui se il nome filtro non è corretto 
+	    catch(ClassNotFoundException e){
+	    	throw new ClassNotFoundException("The filter in the field: '"+column+"' with operator: '"+
+	                                          operator +"' does not exist");
+	    }
+		
+		//entra qui se sbagliate maiuscole e minuscole
+	    catch(NoClassDefFoundError e){
+	    	throw new ClassNotFoundException(
+	    			"Error typing: '"+filterName+"' uppercase and lowercase error");
+	    }
+
+	    //entra qui se il costruttore chiamato da newInstance lancia un eccezione 
+	   	catch (InvocationTargetException e) {  
+	   		//genero una nuova eccezione 
+	   		throw new IllegalArgumentException(e.getTargetException().getMessage()
+	   				+ " Expected in '"+column+"'");
+	   	}
+	   
+		
 	    return filtro;
 	    
 	}

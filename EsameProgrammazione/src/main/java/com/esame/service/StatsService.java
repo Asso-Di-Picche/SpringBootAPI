@@ -25,12 +25,27 @@ public class StatsService {
 		
 	    String ClassStatsName = path.concat("Stats"+column);
 	    
-	    Class<?> cls = Class.forName(ClassStatsName); //seleziono la classe
+	    try {
+	    	
+	    	Class<?> cls = Class.forName(ClassStatsName); //seleziono la classe
 		
-	    Constructor<?> ct = cls.getDeclaredConstructor(ArrayList.class); //seleziono il costruttore
+	    	Constructor<?> ct = cls.getDeclaredConstructor(ArrayList.class); //seleziono il costruttore
 	    
-	    statsCalculator =(StatsCalculator)ct.newInstance(records);  //instanzo oggetto StasCalulator
-	    	    
+	    	statsCalculator =(StatsCalculator)ct.newInstance(records);  //instanzo oggetto StasCalulator
+	    }
+
+	    //entra qui se il nome di StatsCalculator non è corretto 
+	    catch(ClassNotFoundException e){
+	    	throw new ClassNotFoundException("Impossible to calculate statistics for the field: '"
+	    			                         +column+"' does not exist");
+	    }
+		
+		//entra qui se sbagliate maiuscole e minuscole
+	    catch(NoClassDefFoundError e){
+	    	throw new ClassNotFoundException("Impossible to calculate statistics for the field: '"
+	    			+column+"' probably uppercase and lowercase error");
+	    }
+	    
 	    return statsCalculator;
 	    
 	}
