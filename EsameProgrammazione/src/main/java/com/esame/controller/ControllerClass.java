@@ -44,14 +44,14 @@ public class ControllerClass {
 	}
 	
 	@RequestMapping(value = "data", method=RequestMethod.POST)
-	public ArrayList<Record> getDataWithPost(@RequestBody Object filter) throws InternalGeneralException {
+	public ArrayList<Record> getDataWithPost(@RequestBody Object filter) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 		
 		return JsonParser.JsonParserColonna(filter);
 	}
 	
 	@RequestMapping(value = "stats", method=RequestMethod.POST)
 	public Stats getStats(@RequestParam(value = "field") String column,
-									  @RequestBody Object filter) throws InternalGeneralException, StatsNotFoundException {
+									  @RequestBody Object filter) throws InternalGeneralException, StatsNotFoundException, FilterNotFoundException, FilterIllegalArgumentException {
 		
 		ArrayList<Record> filteredArray = JsonParser.JsonParserColonna(filter);
 		StatsCalculator sc = StatsService.instanceStatsCalculator(column, filteredArray);
