@@ -12,19 +12,22 @@ import com.esame.model.Record;
 public class CsvParser {
 
 	String csvFile;
-	BufferedReader br = null;                                     
-	String line = "";
-	ArrayList<Record> records = new ArrayList<>();
+	static BufferedReader br = null;                                     
+	static String line = "";
+	static int riga = 1;
+	static ArrayList<Record> records = new ArrayList<>();
 		
 
 
 	public CsvParser() {}
 
-	public ArrayList<Record> csvParsing(String csvFile){
+	public static ArrayList<Record> csvParsing(String csvFile){
 		
 		try {
 			
-			br = new BufferedReader(new FileReader(csvFile));				
+			br = new BufferedReader(new FileReader(csvFile));
+			br.readLine(); // leggi la prima riga e ignorala
+			
 			while ((line = br.readLine()) != null) {	
 				
 				try {
@@ -48,27 +51,28 @@ public class CsvParser {
 			        records.add(oggettoRecord);
 			        
 				} catch(ArrayIndexOutOfBoundsException e) {
-					
+					System.out.println("Riga #"+riga+"  "+e.toString()
+									  +" parametri inseriti. Aspettati 9");
 				} catch(NumberFormatException e) {
-					
-				} catch(PatternSyntaxException e) {
-					 //if the regular expression's syntax is invalid in split
-				}
-				
-			} 
-	    
-	        try {
+					System.out.println("Riga #"+riga+"  "+e.toString());
+				} 
+				riga++;
+			}
+	     
+			try {
 				br.close();
 	        } catch (IOException e) {
-	            e.printStackTrace();
+	        	System.out.println(e.toString()
+	        	+"Errore in in com.example.demo.service.ParseCsv.java: Chiusura File");
 	        }
-	        
-	        
+	       
 			
 		} catch (FileNotFoundException e) {
-		    e.printStackTrace();
+			System.out.println(e.toString()
+		    +"Errore in com.example.demo.service.ParseCsv.java: File non trovato");
 		} catch (IOException e) {
-		    e.printStackTrace();
+			System.out.println(e.toString()
+			+"Errore in com.example.demo.service.ParseCsv.java: Operazioni di I/O interrotte");
 		}
 		
 		return records;

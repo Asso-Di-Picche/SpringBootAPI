@@ -45,7 +45,6 @@ public class JsonParser {
 		String type="";
 		Filter filter;
 		ArrayList<Record> filteredArray = new ArrayList<Record>();
-		FilterService filtroService = new FilterService();
 		HashMap<String, Object> result = new ObjectMapper().convertValue(filterParam, HashMap.class);
 		
 		for(Map.Entry<String, Object> entry : result.entrySet()) {
@@ -59,17 +58,17 @@ public class JsonParser {
 		    	continue;
 		    }
 		    
-		    filter = filtroService.instanceFilter(column, operator, value);
+		    filter = FilterService.instanceFilter(column, operator, value);
 		    switch(type) {
 		    
 			    case "and":
-			    	filteredArray = filtroService.runFilterAND(filter, previousArray);
+			    	filteredArray = FilterService.runFilterAND(filter, previousArray);
 			    	break;
 			    case "or":
-			    	filteredArray = filtroService.runFilterOR(filter, previousArray);
+			    	filteredArray = FilterService.runFilterOR(filter, previousArray);
 			    	break;
 			    default:
-			    	filteredArray = filtroService.runFilterOR(filter, previousArray);		    	
+			    	filteredArray = FilterService.runFilterOR(filter, previousArray);		    	
 		    }
 		}
 		return filteredArray;	

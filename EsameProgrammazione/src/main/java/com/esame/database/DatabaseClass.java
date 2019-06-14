@@ -25,7 +25,6 @@ import com.esame.service.CsvParser;
 
 public class DatabaseClass {
 
-	private static CsvParser csvParser = new CsvParser();	
 	private static ArrayList<Record>  records = new ArrayList<Record>();
 	private static ArrayList<Metadata> metadata = new ArrayList<Metadata>();
 
@@ -83,10 +82,14 @@ public class DatabaseClass {
 		        	}
 			 	}
 			}
-		} catch (IOException | ParseException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch(ParseException e) {
+			System.out.println(
+				"Errore in in com.example.demo.service.DatabaseClass.java: "
+				+ "Errore nel parsing String - JsonObject");
+		} catch (IOException e) {
+			System.out.println("Errore in in com.example.demo.service.DatabaseClass.java: "
+				+ "Controlla la validità dell URL o Verifica la tua connessione internet");
 		}
 	}
 	
@@ -94,10 +97,11 @@ public class DatabaseClass {
 	public static void download(String url, String fileName){
 		try (InputStream in = URI.create(url).toURL().openStream()) {
 			Files.copy(in, Paths.get(fileName), StandardCopyOption.REPLACE_EXISTING);
-			records = csvParser.csvParsing("configFile/dataset.csv");
+			records = CsvParser.csvParsing("configFile/dataset.csv");
 		} catch ( IOException e) {
 			//errore in scrittura
-			e.printStackTrace();
+			System.out.println("Errore in in com.example.demo.service.DatabaseClass.java: "
+					+ "Errore nella copia del File nella cartella configFile");
 		}
 	}
 	
