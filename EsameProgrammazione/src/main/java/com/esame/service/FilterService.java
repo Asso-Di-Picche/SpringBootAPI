@@ -16,6 +16,7 @@ import com.esame.exception.InternalGeneralException;
  * @author Cristian Vitali
 */
 
+
 public class FilterService {
 
 	private final static String path = "com.esame.util.filter.";

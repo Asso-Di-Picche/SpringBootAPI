@@ -63,9 +63,11 @@ public class ControllerClass {
 	 * @param Un Object contenente un JSON con i filtri da applicare al dataset.
 	 * @return ArrayList di oggetti Record filtrati
 	 */
-	
+
 	@RequestMapping(value = "data", method=RequestMethod.POST)
+
 	public ArrayList<Record> getDataWithPost(@RequestBody Object filter) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
+
 		
 		return JsonParser.JsonParserColonna(filter);
 	}
@@ -79,8 +81,11 @@ public class ControllerClass {
 	 */
 	
 	@RequestMapping(value = "stats", method=RequestMethod.POST)
+
 	public Stats getStats(@RequestParam(value = "field") String column,
+
 									  @RequestBody Object filter) throws InternalGeneralException, StatsNotFoundException, FilterNotFoundException, FilterIllegalArgumentException {
+
 		
 		ArrayList<Record> filteredArray = JsonParser.JsonParserColonna(filter);
 		StatsCalculator sc = StatsService.instanceStatsCalculator(column, filteredArray);
