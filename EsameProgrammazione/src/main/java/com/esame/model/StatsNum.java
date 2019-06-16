@@ -1,5 +1,10 @@
 package com.esame.model;
 
+/** Rappresenta la classe i cui oggetti sono la risposta 
+ * alla richiesta Stats su valori colonna numerici.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
 
 public class StatsNum extends Stats {
 

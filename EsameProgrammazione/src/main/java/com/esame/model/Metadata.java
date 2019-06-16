@@ -1,5 +1,11 @@
 package com.esame.model;
 
+/** Rappresenta la classe i cui oggetti cotengono nome colonna,
+ * alias assegnato e tipo di dato. 
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class Metadata {
 
 	String alias;

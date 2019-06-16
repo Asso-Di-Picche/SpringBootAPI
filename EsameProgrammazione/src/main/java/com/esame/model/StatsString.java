@@ -2,6 +2,11 @@ package com.esame.model;
 
 import java.util.Map;
 
+/** Rappresenta la classe i cui oggetti sono la risposta 
+ * alla richiesta Stats su valori colonna String.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
 
 public class StatsString extends Stats {
 	

@@ -11,7 +11,10 @@ import com.esame.model.Record;
 import com.esame.util.other.Filter;
 import com.esame.exception.InternalGeneralException;
 
-
+/** Rappresenta la classe statica che gestisce i filtraggi del dataset.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
 
 public class FilterService {
 

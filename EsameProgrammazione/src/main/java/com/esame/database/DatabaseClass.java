@@ -21,18 +21,30 @@ import com.esame.model.Metadata;
 import com.esame.model.Record;
 import com.esame.service.CsvParser;
 
-
+/** Rappresenta la Classe che gestisce la memoria. Inizializza il 
+ * dataset.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
 
 public class DatabaseClass {
 
 	private static ArrayList<Record>  records = new ArrayList<Record>();
 	private static ArrayList<Metadata> metadata = new ArrayList<Metadata>();
 
+	/**
+	 * @return L'intero ArrayList di oggetti Record
+	*/
 	
 	public static ArrayList<Record> getRecords() {
 		return records;
 	}	
 
+	/**
+	 * Inizializza e restituisce l array list di Metadata
+	 * @return ArrayList di oggetti Metadata
+	 */
+	
 	public static ArrayList<Metadata> getArrayMetadata() {
 		
 		metadata.add(new Metadata("ProvDest","Provincia di destinazione","String"));
@@ -46,6 +58,12 @@ public class DatabaseClass {
 		metadata.add(new Metadata("TotEsRicPres","Totale esercici ricettivi - Presenze","Integer"));
 		return metadata;
 	}	
+	
+	/**
+	 * Ricerca l'URL per il download del dataset nel JSON e inizzializza
+	 * l'intero array di record
+	 * @param Un URL che ci restituisce un JSON contenente il link al dataset
+	*/
 	
 	public static void downloadCsv(String url) {
 		
@@ -97,6 +115,12 @@ public class DatabaseClass {
 		}
 	}
 	
+	/**
+	 * Effettua il download del dataset, lo copia nella cartella configFile
+	 * e ed effettua il parsing, inizzializzando l ArrayList records
+	 * @param Un URL che contiene il dataset
+	 * @param Un nome per il file da copiare in configFile
+	 */
 	
 	public static void download(String url, String fileName){
 		try (InputStream in = URI.create(url).toURL().openStream()) {

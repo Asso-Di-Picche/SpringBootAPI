@@ -27,9 +27,19 @@ import com.esame.model.Stats;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
  
+/** Rappresenta la classe che gestisce tutte le chiamate al Server 
+ * permesse al Client.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
 
 @RestController
 public class ControllerClass {
+	
+	/**
+	 * Risponde all richiesta GET /metadata 
+	 * @return ArrayList di oggetti Metadata
+	 */
 
 	@RequestMapping(value = "metadata", method=RequestMethod.GET)
 	public ArrayList<Metadata> getMetadata(){
@@ -37,17 +47,36 @@ public class ControllerClass {
 		return DatabaseClass.getArrayMetadata();
 	}
 	
+	/**
+	 * Risponde all richiesta GET /data
+	 * @return ArrayList di oggetti Record
+	 */
+	
 	@RequestMapping(value = "data", method=RequestMethod.GET)
 	public ArrayList<Record> getDataWithGet() {
 		
 		return DatabaseClass.getRecords();
 	}
 	
+	/**
+	 * Risponde all richiesta POST /data
+	 * @param Un Object contenente un JSON con i filtri da applicare al dataset.
+	 * @return ArrayList di oggetti Record filtrati
+	 */
+	
 	@RequestMapping(value = "data", method=RequestMethod.POST)
 	public ArrayList<Record> getDataWithPost(@RequestBody Object filter) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 		
 		return JsonParser.JsonParserColonna(filter);
 	}
+	
+	/**
+	 * Risponde all richiesta POST /stats
+	 * @param Una Stringa tramite URL che rappresenta la colonna sulla quale 
+	 * si vuole effettuare la statistica. 
+	 * @param Un Object contenente un JSON con i filtri da applicare al dataset.
+	 * @return ArrayList di oggetti Record filtrati
+	 */
 	
 	@RequestMapping(value = "stats", method=RequestMethod.POST)
 	public Stats getStats(@RequestParam(value = "field") String column,

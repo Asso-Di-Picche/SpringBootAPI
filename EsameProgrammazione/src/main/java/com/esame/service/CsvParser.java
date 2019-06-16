@@ -9,6 +9,12 @@ import java.util.regex.PatternSyntaxException;
 
 import com.esame.model.Record;
 
+/** Rappresenta la classe statica che effettua il parsing del file csv
+ * e restituisce i record salvati.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class CsvParser {
 
 	String csvFile;
@@ -21,6 +27,13 @@ public class CsvParser {
 
 	public CsvParser() {}
 
+	/**
+	 * Effettua il parsing del file CSV, salvando ogni riga come oggetto Record.
+	 * @param Una Stringa con il nome (compreso percorso cartella), del file
+	 * in cui effettuare le operazioni.
+	 * @return L' intero ArrayList di Record.
+	*/
+	
 	public static ArrayList<Record> csvParsing(String csvFile){
 		
 		try {

@@ -6,6 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.esame.database.DatabaseClass;
 import com.esame.service.StatsService;
 
+/** All'avvio effettua il download del dataset.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
 
 @SpringBootApplication
 public class MainApp {

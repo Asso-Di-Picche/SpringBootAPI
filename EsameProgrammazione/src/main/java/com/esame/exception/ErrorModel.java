@@ -4,6 +4,12 @@ import java.time.Instant;
 
 import org.springframework.http.HttpStatus;
 
+/** Rappresenta la classe i cui oggetti sono gli eventiali errori 
+ * da restiruire al client.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class ErrorModel {
 	
 	private final HttpStatus httpStatus;

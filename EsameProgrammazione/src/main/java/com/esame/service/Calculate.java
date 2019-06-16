@@ -2,6 +2,12 @@ package com.esame.service;
 
 import java.util.ArrayList;
 
+/** Rappresenta la classe statica che effettua calcoli non usuali
+ * su dataset di interi ( esempio: Deviazione Standard ).
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class Calculate {
 
 	public static double StdDev(ArrayList<Integer> arrayint, double avg) {

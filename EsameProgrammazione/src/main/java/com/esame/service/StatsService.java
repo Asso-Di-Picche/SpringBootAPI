@@ -8,6 +8,12 @@ import com.esame.util.other.StatsCalculator;
 import com.esame.exception.InternalGeneralException;
 import com.esame.exception.StatsNotFoundException;
 
+/** Rappresenta la classe statica che gestisce i calcoli di stats sul 
+ * dataset.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class StatsService {
 
 	private final static String path = "com.esame.util.statistic.";

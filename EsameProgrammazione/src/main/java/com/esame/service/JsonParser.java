@@ -12,9 +12,21 @@ import com.esame.service.FilterService;
 import com.esame.util.other.Filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/** Rappresenta la classe statica che effettua il parsing ricorsivo su un 
+ * oggetto di tipo JSON
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
 
 public class JsonParser {
 
+	/**
+	 * Effettua il parsing piu esterno, selezionando il valore colonna
+	 * e un oggetto valore, che contiene il filtro da applicare al dataset
+	 * ed eventualmente il type con cui aggiungere il filtro ai precedenti.
+	 * @param Un object contenente il JSON con le informazioni sul filtraggio
+	 * @return Un ArrayList di Record filtrato
+	 */
 	
 	public static ArrayList<Record> JsonParserColonna(Object filter) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
 		
@@ -42,6 +54,16 @@ public class JsonParser {
 		return filteredArray;		
 	}
 	
+	/**
+	 * Effettua il parsing piu interno, selezionando l operatore e il parametro
+	 * per il filtraggio e lancia il filtro corrispondente alla richiesta. 
+	 * @param Una Stringa che rappresenta la colonna su cui si vuole effettuare
+	 * il filtraggio.
+	 * @param Un object contenente i parametri di filtraggio.
+	 * @param L'ArrayList ottenuto dai filtraggi precedenti relativi 
+	 * ad altre colonne.
+	 * @return Un ArrayList di Record filtrato
+	 */
 	
 	public static ArrayList<Record> JsonParserOperator(String column, 
 													   Object filterParam, 

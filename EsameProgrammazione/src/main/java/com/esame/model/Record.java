@@ -1,5 +1,11 @@
 package com.esame.model;
 
+/** Rappresenta la classe i cui oggetti cotengono i dati di un 
+ * record (riga) del file csv.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class Record {
 
 	protected String ProvDest ;

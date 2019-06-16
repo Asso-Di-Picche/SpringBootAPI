@@ -1,5 +1,11 @@
 package com.esame.model;
 
+/** Rappresenta la superclasse contenente il nome colonna e conteggio
+ * elemementi.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class Stats {
 	
 	public String field;
