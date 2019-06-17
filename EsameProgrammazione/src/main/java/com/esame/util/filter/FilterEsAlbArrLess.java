@@ -4,6 +4,12 @@ import com.esame.model.Record;
 import com.esame.util.other.Filter;
 import com.esame.util.other.Filter1ParParent;
 
+/** Rappresenta la classe che implemeta il filtro per il campo EsAlbArr
+ * con operatore: "minore di" 
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class FilterEsAlbArrLess extends Filter1ParParent implements Filter {
 
 	

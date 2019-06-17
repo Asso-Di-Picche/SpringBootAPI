@@ -4,6 +4,12 @@ import com.esame.model.Record;
 import com.esame.util.other.Filter;
 import com.esame.util.other.Filter1ParParent;
 
+/** Rappresenta la classe che implemeta il filtro per il campo TotEsRicArr
+ * con operatore: "maggiore di" 
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class FilterTotEsRicArrGreater extends Filter1ParParent implements Filter {
 
 	

@@ -28,7 +28,7 @@ public class JsonParser {
 	 * @return Un ArrayList di Record filtrato
 	 */
 	
-	public static ArrayList<Record> JsonParserColonna(Object filter) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
+	public static ArrayList<Record> JsonParserColumn(Object filter) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
 		
 		ArrayList<Record> previousArray = new ArrayList<Record>();
 		ArrayList<Record> filteredArray = new ArrayList<Record>();

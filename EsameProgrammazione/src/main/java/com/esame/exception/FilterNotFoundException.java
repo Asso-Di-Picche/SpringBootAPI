@@ -8,6 +8,9 @@ package com.esame.exception;
 
 public class FilterNotFoundException extends ClassNotFoundException{
 
+
+	private static final long serialVersionUID = 2L;
+
 	public FilterNotFoundException() {
 		super();
 	}

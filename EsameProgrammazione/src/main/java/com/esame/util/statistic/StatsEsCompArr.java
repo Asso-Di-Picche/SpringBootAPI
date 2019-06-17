@@ -9,6 +9,13 @@ import com.esame.service.Calculate;
 import com.esame.util.other.StatsCalculator;
 import com.esame.util.other.StatsParent;
 
+/** Rappresenta la classe che implemeta il calcolatore di statistica 
+ * per il campo EsCompArr
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
+
 public class StatsEsCompArr extends StatsParent implements StatsCalculator{
 
 	

@@ -4,6 +4,12 @@ import com.esame.model.Record;
 import com.esame.util.other.Filter;
 import com.esame.util.other.FilterArrayStringParent;
 
+/** Rappresenta la classe che implemeta il filtro per il campo PaeseRes
+ * con operatore: "non corrisponde a"
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class FilterPaeseResNin extends FilterArrayStringParent implements Filter {
 
 	

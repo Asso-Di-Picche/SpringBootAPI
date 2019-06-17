@@ -19,13 +19,28 @@ import com.esame.exception.InternalGeneralException;
 
 public class FilterService {
 
+	/** package contenente le classi che implementano l'interfaccia Filter 
+	 */
 	private final static String path = "com.esame.util.filter.";
+	
 	private static ArrayList<Record> records = DatabaseClass.getRecords();
 	
 	
-	// generazione errori ClassNotFoundException se nome filtro non coretto
-	// gli altri errori non dovrebbero verificarsi mai, errori interni 
-	//
+	
+	/**
+	 * Permette di istanziare un oggetto Filter dalle classi presenti nel package com.esame.util.filter
+	 * indicando i paramatri di filtraggio desiderati. 
+	 * @param     column campo su cui si vuole eseguire il filtraggio. (es: EsAlbArr)
+	 * @param     operator tipo di filtraggio selezionato. (es: Greater)
+	 * @param     param parametro ingresso necessario al filro selezionato. 
+	 * @return    un oggetto che implementa l'interfaccia Filter.(ossia il filtro desiderato)
+	 * @throws    FilterNotFoundException il filtro richiesto non è presente nel package. 
+	 * @throws    FilterIllegalArgumentException il parametro d'ingresso al filtro non è
+	 *            valido per il filro selezionato. 
+	 * @throws    InternalGeneralException errori interni. (se si verifica è necessaria una 
+	 * 			  revisione del codice)
+	 */
+
 	public static Filter instanceFilter(String column,String operator,Object param) 
 		   throws FilterNotFoundException, FilterIllegalArgumentException,InternalGeneralException{
 		
@@ -72,7 +87,15 @@ public class FilterService {
 	    return filtro;
 	    
 	}
+		
 	
+	/**
+	 * Questo metodo scorre un ArrayList<Record> e restitusce un nuovo ArrayList<Record> composto
+	 * da soli record che risultano positivi al filtro.
+	 * @param     filtro che si desidera utilizzare. 
+	 * @param     previousArray ArrayList<Record> su cui si vuol eseguire l'operazione di filtraggio. 
+	 * @return    ArrayList<Record> frutto dell'operazione di filtraggio.
+	 */
 	
 	public static ArrayList<Record> runFilterAND(Filter filtro, ArrayList<Record> previousArray){
 
@@ -87,6 +110,15 @@ public class FilterService {
 		return filteredArray;
 	}
 
+	
+	
+	/**
+	 * Questo metodo restitusce un ArrayList<Record> composto dai record precedenti
+	 * con in aggiunta quelli che rispettano il filtro prendendoli dal database.
+	 * @param     filtro che si desidera utilizzare. 
+	 * @param     previousArray ArrayList<Record> precedente. 
+	 * @return    ArrayList<Record> frutto dell'operazione di filtraggio.
+	 */
 	
 	public static ArrayList<Record> runFilterOR(Filter filtro, ArrayList<Record> previousArray){
 

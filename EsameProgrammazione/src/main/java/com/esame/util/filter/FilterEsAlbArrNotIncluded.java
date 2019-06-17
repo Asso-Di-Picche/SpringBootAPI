@@ -4,6 +4,12 @@ import com.esame.model.Record;
 import com.esame.util.other.Filter;
 import com.esame.util.other.Filter2ParParent;
 
+/** Rappresenta la classe che implemeta il filtro per il campo EsAlbArr
+ * con operatore: "non incluso tra" 
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class FilterEsAlbArrNotIncluded extends Filter2ParParent implements Filter  {
 	
 		
