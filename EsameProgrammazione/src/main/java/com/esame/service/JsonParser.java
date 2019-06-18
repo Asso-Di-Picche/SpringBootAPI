@@ -7,6 +7,7 @@ import java.util.Map;
 import com.esame.exception.FilterIllegalArgumentException;
 import com.esame.exception.FilterNotFoundException;
 import com.esame.exception.InternalGeneralException;
+import com.esame.exception.StatsNotFoundException;
 import com.esame.model.Record;
 import com.esame.service.FilterService;
 import com.esame.util.other.Filter;
@@ -26,9 +27,13 @@ public class JsonParser {
 	 * ed eventualmente il type con cui aggiungere il filtro ai precedenti.
 	 * @param Un object contenente il JSON con le informazioni sul filtraggio
 	 * @return Un ArrayList di Record filtrato
+	 * @throws    InternalGeneralException se vengono generati errori generali interni al server.
+	 * @throws    FilterNotFoundException se vengono generati errori di filtro non trovato.
+	 * @throws    FilterIllegalArgumentException se vengono generati errori di parametro non valido in ingresso al filtro.
 	 */
 	
-	public static ArrayList<Record> JsonParserColonna(Object filter) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
+	public static ArrayList<Record> JsonParserColonna(Object filter) 
+	throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
 		
 		ArrayList<Record> previousArray = new ArrayList<Record>();
 		ArrayList<Record> filteredArray = new ArrayList<Record>();
@@ -37,6 +42,7 @@ public class JsonParser {
 		for(Map.Entry<String, Object> entry : result.entrySet()) {
 			
 			//ad ogni ciclo ripulisce l array "filteredArray"
+			//il vecchio filteredArray diventa Garbage (oggetto senza riferimento)
 			filteredArray = new ArrayList<Record>();
 		    String column = entry.getKey();
 		    Object filterParam = entry.getValue();
@@ -48,6 +54,7 @@ public class JsonParser {
 				
 			} 
 		    //ripulisce "previousArray" prima di riempirlo con "filteredArray"
+		    //il previousArray precedente diventa Garbage (oggetto senza riferimento)
 		    previousArray = new ArrayList<Record>();
 		    previousArray.addAll(filteredArray);
 		}
@@ -63,11 +70,15 @@ public class JsonParser {
 	 * @param L'ArrayList ottenuto dai filtraggi precedenti relativi 
 	 * ad altre colonne.
 	 * @return Un ArrayList di Record filtrato
+	 * @throws    InternalGeneralException se vengono generati errori generali interni al server.
+	 * @throws    FilterNotFoundException se vengono generati errori di filtro non trovato.
+	 * @throws    FilterIllegalArgumentException se vengono generati errori di parametro non valido in ingresso al filtro.
 	 */
 	
 	public static ArrayList<Record> JsonParserOperator(String column, 
 													   Object filterParam, 
-												       ArrayList<Record> previousArray) throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
+												       ArrayList<Record> previousArray) 
+	throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 		
 		String type="";
 		Filter filter;
@@ -78,7 +89,7 @@ public class JsonParser {
 			
 		    String operator = entry.getKey();
 		    Object value = entry.getValue();
-		    // Se operatore è type allora guarda se il valore (and o or)
+		    // Se operatore è type allora guarda se il valore è 'and' o 'or'
 		    // lancia il metodo runfilter corrispondente
 		    if(operator.equals("type") || operator.equals("Type")) {
 		    	type = (String) value;
