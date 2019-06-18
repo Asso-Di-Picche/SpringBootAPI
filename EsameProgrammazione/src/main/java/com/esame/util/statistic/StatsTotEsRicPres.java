@@ -9,14 +9,21 @@ import com.esame.service.Calculate;
 import com.esame.util.other.StatsCalculator;
 import com.esame.util.other.StatsParent;
 
+/** Rappresenta la classe che implemeta il calcolatore di statistica 
+ * per il campo TotEsRicPres
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
+
 public class StatsTotEsRicPres extends StatsParent implements StatsCalculator{
 
-	
+
 	public StatsTotEsRicPres(ArrayList<Record> RecordList) {
 		super(RecordList);
 	}
 
-	
+
 	public StatsNum run(){
 		
 		StatsNum retStats = new StatsNum();

@@ -16,11 +16,21 @@ import com.esame.exception.StatsNotFoundException;
 
 public class StatsService {
 
+	/** package contenente le classi che implementato l'interfaccia StatsCalculator */
 	private final static String path = "com.esame.util.statistic.";
 	
 	
-	// column -> campo su cui si vuol calcolare la statistica
-	// records -> elementi su cui si vuol calcolare la statistica
+	/**
+	 * Permette di istanziare un oggetto StatsCalculator dalle classi presenti nel 
+	 * package com.esame.util.statistic 
+	 * @param     column campo su cui si vuole eseguire la stistica. (es: EsAlbArr)
+	 * @param     records è l'array su cui si vuole eseguire la statistica.
+	 * @return    un oggetto che implementa l'interfaccia StatsCalculator.
+	 * @throws    StatsNotFoundException per il campo richiesto non è presente un StatsCalculator
+	 * 			  nel package. 
+	 * @throws    InternalGeneralException errori interni. (se si verifica è necessaria una 
+	 * 			  revisione del codice)
+	 */
 	
 	public static StatsCalculator instanceStatsCalculator(String column, ArrayList<Record> records) 
 			throws InternalGeneralException, StatsNotFoundException {

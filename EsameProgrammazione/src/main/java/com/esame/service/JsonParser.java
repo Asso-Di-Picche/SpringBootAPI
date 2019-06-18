@@ -31,8 +31,8 @@ public class JsonParser {
 	 * @throws    FilterNotFoundException se vengono generati errori di filtro non trovato.
 	 * @throws    FilterIllegalArgumentException se vengono generati errori di parametro non valido in ingresso al filtro.
 	 */
-	
-	public static ArrayList<Record> JsonParserColonna(Object filter) 
+
+	public static ArrayList<Record> jsonParserColumn(Object filter) 
 	throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
 		
 		ArrayList<Record> previousArray = new ArrayList<Record>();
@@ -47,7 +47,7 @@ public class JsonParser {
 		    String column = entry.getKey();
 		    Object filterParam = entry.getValue();
 		    try {
-				filteredArray = JsonParserOperator(column, filterParam, previousArray);
+				filteredArray = jsonParserOperator(column, filterParam, previousArray);
 			} catch (  SecurityException e) {
 
 				throw new InternalGeneralException("Error in parsing I/O operation");
@@ -75,7 +75,7 @@ public class JsonParser {
 	 * @throws    FilterIllegalArgumentException se vengono generati errori di parametro non valido in ingresso al filtro.
 	 */
 	
-	public static ArrayList<Record> JsonParserOperator(String column, 
+	public static ArrayList<Record> jsonParserOperator(String column, 
 													   Object filterParam, 
 												       ArrayList<Record> previousArray) 
 	throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {

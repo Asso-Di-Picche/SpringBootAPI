@@ -1,9 +1,19 @@
 package com.esame.util.other;
 
+/** Rappresenta la superclasse per i filtri che lavorano su un intero.
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 public class Filter1ParParent {
 
 	protected int parametroFiltro;
 	
+	
+	/** Costruttore 
+	 * @param parametro deve essere un <Integer>.
+	 * @throws IllegalArgumentException parametri non è del tipo richiesto. 
+	*/
 	public Filter1ParParent(Object parametroFiltro){
 		
 		if(parametroFiltro instanceof Integer ) { 
@@ -14,6 +24,10 @@ public class Filter1ParParent {
 		
 	}
 		
+	/** Set
+	 * @param parametro deve essere un <Integer>.
+	 * @throws IllegalArgumentException parametri non è del tipo richiesto. 
+	*/
 	public void setParametroFiltro(Object parametroFiltro) {
 		
 		if(parametroFiltro instanceof Integer ) { 
@@ -23,7 +37,9 @@ public class Filter1ParParent {
 		}
 	}
 
-	// Overloading
+	/** Set Overloading
+	 * @param parametro filtro. 
+	*/
 	public void setParametroFiltro(int parametroFiltro) {
 		this.parametroFiltro = parametroFiltro;
 	}

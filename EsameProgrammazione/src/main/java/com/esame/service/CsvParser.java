@@ -24,9 +24,6 @@ public class CsvParser {
 	static ArrayList<Record> records = new ArrayList<>();
 		
 
-
-	public CsvParser() {}
-
 	/**
 	 * Effettua il parsing del file CSV, salvando ogni riga come oggetto Record.
 	 * @param Una Stringa con il nome (compreso percorso cartella), del file

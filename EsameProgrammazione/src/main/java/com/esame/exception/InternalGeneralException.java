@@ -8,6 +8,9 @@ package com.esame.exception;
 
 public class InternalGeneralException extends Exception {
 
+
+	private static final long serialVersionUID = 3L;
+
 	public InternalGeneralException() {
 		super();
 	}

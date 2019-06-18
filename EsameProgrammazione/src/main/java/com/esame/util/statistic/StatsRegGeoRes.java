@@ -8,6 +8,12 @@ import com.esame.model.StatsString;
 import com.esame.util.other.StatsCalculator;
 import com.esame.util.other.StatsParent;
 
+/** Rappresenta la classe che implemeta il calcolatore di statistica 
+ * per il campo RegGeoRes
+ * @author Marco Sebastianelli
+ * @author Cristian Vitali
+*/
+
 
 public class StatsRegGeoRes extends StatsParent implements StatsCalculator {
 

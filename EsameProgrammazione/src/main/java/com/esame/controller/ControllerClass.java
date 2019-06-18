@@ -67,7 +67,7 @@ public class ControllerClass {
     throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 
 		
-		return JsonParser.JsonParserColonna(filter);
+		return JsonParser.jsonParserColumn(filter);
 	}
 	
 	/**
@@ -87,7 +87,7 @@ public class ControllerClass {
 								  @RequestBody Object filter) 
 	throws InternalGeneralException, StatsNotFoundException, FilterNotFoundException, FilterIllegalArgumentException {
 		
-		ArrayList<Record> filteredArray = JsonParser.JsonParserColonna(filter);
+		ArrayList<Record> filteredArray = JsonParser.jsonParserColumn(filter);
 		StatsCalculator sc = StatsService.instanceStatsCalculator(column, filteredArray);
 		return sc.run();
 	}
