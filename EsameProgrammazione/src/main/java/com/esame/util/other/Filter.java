@@ -12,6 +12,7 @@ public interface Filter {
 	/** questo metodo restituisce True se il record rispetta le caratteristiche 
 	 * richeste del filtro che implementa l'interfaccia.
 	 * @param record su cui si vuol esegurire la verifica.
+	 * @return risposta.
 	*/
 	public boolean filter(Record record);
 }

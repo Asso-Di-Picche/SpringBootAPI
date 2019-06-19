@@ -54,7 +54,7 @@ public class ControllerClass {
 	
 	/**
 	 * Risponde all richiesta POST /data
-	 * @param     Un Object contenente un JSON con i filtri da applicare al dataset.
+	 * @param     filter contiene un JSON con i filtri da applicare al dataset.
 	 * @return    ArrayList di oggetti Record filtrati.
 	 * @throws    InternalGeneralException se vengono generati errori generali interni al server.
 	 * @throws    FilterNotFoundException se vengono generati errori di Filtro non trovato.
@@ -72,10 +72,9 @@ public class ControllerClass {
 	
 	/**
 	 * Risponde all richiesta POST /stats
-	 * @param Una Stringa tramite URL che rappresenta la colonna sulla quale 
-	 * si vuole effettuare la statistica. 
-	 * @param Un Object contenente un JSON con i filtri da applicare al dataset.
-	 * @return ArrayList di oggetti Record filtrati
+	 * @param column rappresenta il campo sul quale si vuole effettuare la statistica. 
+	 * @param filter contentiene un JSON con i filtri da applicare al dataset.
+	 * @return un oggetto stats, che contiene le statistiche richieste
 	 * @throws    InternalGeneralException se vengono generati errori generali interni al server.
 	 * @throws    StatsNotFoundException se vengono generati errori di richiesta su colonna non esistente 
 	 * @throws    FilterNotFoundException se vengono generati errori di Filtro non trovato.
@@ -92,6 +91,15 @@ public class ControllerClass {
 		return sc.run();
 	}
 	
+	/**
+	 * Risponde all richiesta GET /stats
+	 * @param column rappresenta il campo sul quale si vuole effettuare la statistica. 
+	 * @return un oggetto stats, che contiene le statistiche richieste
+	 * @throws    InternalGeneralException se vengono generati errori generali interni al server.
+	 * @throws    StatsNotFoundException se vengono generati errori di richiesta su colonna non esistente 
+	 * @throws    FilterNotFoundException se vengono generati errori di Filtro non trovato.
+	 * @throws    FilterIllegalArgumentException se vengono generati errori di parametro non valido in ingresso al filtro.
+	 */
 	
 	@RequestMapping(value = "stats", method=RequestMethod.GET)
 	public Stats getStats(@RequestParam(value = "field") String column) 

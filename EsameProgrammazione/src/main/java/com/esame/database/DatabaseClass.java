@@ -62,7 +62,7 @@ public class DatabaseClass {
 	/**
 	 * Ricerca l'URL per il download del dataset nel JSON e inizzializza
 	 * l'intero array di record
-	 * @param Un URL che ci restituisce un JSON contenente il link al dataset
+	 * @param url che ci restituisce un JSON contenente il link al dataset
 	*/
 	
 	public static void downloadCsv(String url) {
@@ -118,8 +118,8 @@ public class DatabaseClass {
 	/**
 	 * Effettua il download del dataset, lo copia nella cartella configFile
 	 * e ed effettua il parsing, inizzializzando l ArrayList records
-	 * @param Un URL che contiene il dataset
-	 * @param Un nome per il file da copiare in configFile
+	 * @param url che contiene il dataset
+	 * @param fileName contiene il nome del file da copiare in configFile
 	 */
 	
 	public static void download(String url, String fileName){

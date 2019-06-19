@@ -11,7 +11,7 @@ public class Filter1ParParent {
 	
 	
 	/** Costruttore 
-	 * @param parametro deve essere un <Integer>.
+	 * @param parametroFiltro deve essere un Int.
 	 * @throws IllegalArgumentException parametri non è del tipo richiesto. 
 	*/
 	public Filter1ParParent(Object parametroFiltro){
@@ -25,7 +25,7 @@ public class Filter1ParParent {
 	}
 		
 	/** Set
-	 * @param parametro deve essere un <Integer>.
+	 * @param parametroFiltro deve essere un Int.
 	 * @throws IllegalArgumentException parametri non è del tipo richiesto. 
 	*/
 	public void setParametroFiltro(Object parametroFiltro) {
@@ -38,7 +38,7 @@ public class Filter1ParParent {
 	}
 
 	/** Set Overloading
-	 * @param parametro filtro. 
+	 *  
 	*/
 	public void setParametroFiltro(int parametroFiltro) {
 		this.parametroFiltro = parametroFiltro;

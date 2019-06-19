@@ -7,7 +7,6 @@ import java.util.Map;
 import com.esame.exception.FilterIllegalArgumentException;
 import com.esame.exception.FilterNotFoundException;
 import com.esame.exception.InternalGeneralException;
-import com.esame.exception.StatsNotFoundException;
 import com.esame.model.Record;
 import com.esame.service.FilterService;
 import com.esame.util.other.Filter;
@@ -25,7 +24,7 @@ public class JsonParser {
 	 * Effettua il parsing piu esterno, selezionando il valore colonna
 	 * e un oggetto valore, che contiene il filtro da applicare al dataset
 	 * ed eventualmente il type con cui aggiungere il filtro ai precedenti.
-	 * @param Un object contenente il JSON con le informazioni sul filtraggio
+	 * @param filter contiene il JSON con le informazioni sul filtraggio
 	 * @return Un ArrayList di Record filtrato
 	 * @throws    InternalGeneralException se vengono generati errori generali interni al server.
 	 * @throws    FilterNotFoundException se vengono generati errori di filtro non trovato.
@@ -64,10 +63,9 @@ public class JsonParser {
 	/**
 	 * Effettua il parsing piu interno, selezionando l operatore e il parametro
 	 * per il filtraggio e lancia il filtro corrispondente alla richiesta. 
-	 * @param Una Stringa che rappresenta la colonna su cui si vuole effettuare
-	 * il filtraggio.
-	 * @param Un object contenente i parametri di filtraggio.
-	 * @param L'ArrayList ottenuto dai filtraggi precedenti relativi 
+	 * @param column rappresenta il campo su cui si vuole effettuare il filtraggio.
+	 * @param filterParam contiene i parametri di filtraggio.
+	 * @param previousArray rappresenta l'ArrayList ottenuto dai filtraggi precedenti relativi 
 	 * ad altre colonne.
 	 * @return Un ArrayList di Record filtrato
 	 * @throws    InternalGeneralException se vengono generati errori generali interni al server.

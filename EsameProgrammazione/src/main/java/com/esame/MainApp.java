@@ -2,11 +2,9 @@ package com.esame;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import com.esame.database.DatabaseClass;
-import com.esame.service.StatsService;
 
-/** All'avvio effettua il download del dataset.
+/** All'avvio effettua il download del dataset e avvia l'applicazione Spring.
  * @author Marco Sebastianelli
  * @author Cristian Vitali
 */

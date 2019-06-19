@@ -13,7 +13,7 @@ public class FilterArrayStringParent {
 
 	
 	/** Costruttore 
-	 * @param parametri deve essere un ArrayList<String>.
+	 * @param parametri deve essere un ArrayList String.
 	 * @throws IllegalArgumentException parametri non è del tipo richiesto. 
 	*/
 	public FilterArrayStringParent(Object parametri) {
@@ -36,7 +36,7 @@ public class FilterArrayStringParent {
 	
 	
 	/** Set 
-	 * @param parametri deve essere un ArrayList<String>.
+	 * @param parametri deve essere un ArrayList di stringhe
 	 * @throws IllegalArgumentException parametri non è del tipo richiesto. 
 	*/
 	public void SetParametriFiltro(Object parametri) {

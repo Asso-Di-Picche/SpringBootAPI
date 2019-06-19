@@ -90,11 +90,11 @@ public class FilterService {
 		
 	
 	/**
-	 * Questo metodo scorre un ArrayList<Record> e restitusce un nuovo ArrayList<Record> composto
+	 * Questo metodo scorre un ArrayList di Record e restitusce un nuovo ArrayList di Record composto
 	 * da soli record che risultano positivi al filtro.
 	 * @param     filtro che si desidera utilizzare. 
-	 * @param     previousArray ArrayList<Record> su cui si vuol eseguire l'operazione di filtraggio. 
-	 * @return    ArrayList<Record> frutto dell'operazione di filtraggio.
+	 * @param     previousArray ArrayList di Record su cui si vuol eseguire l'operazione di filtraggio. 
+	 * @return    ArrayList di Record frutto dell'operazione di filtraggio.
 	 */
 	
 	public static ArrayList<Record> runFilterAND(Filter filtro, ArrayList<Record> previousArray){
@@ -113,11 +113,11 @@ public class FilterService {
 	
 	
 	/**
-	 * Questo metodo restitusce un ArrayList<Record> composto dai record precedenti
+	 * Questo metodo restitusce un ArrayList di Record composto dai record precedenti
 	 * con in aggiunta quelli che rispettano il filtro prendendoli dal database.
 	 * @param     filtro che si desidera utilizzare. 
-	 * @param     previousArray ArrayList<Record> precedente. 
-	 * @return    ArrayList<Record> frutto dell'operazione di filtraggio.
+	 * @param     previousArray ArrayList di Record precedente. 
+	 * @return    ArrayList di Record frutto dell'operazione di filtraggio.
 	 */
 	
 	public static ArrayList<Record> runFilterOR(Filter filtro, ArrayList<Record> previousArray){

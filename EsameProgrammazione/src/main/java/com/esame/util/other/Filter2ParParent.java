@@ -14,7 +14,7 @@ public class Filter2ParParent {
 	
 		
 	/** Costruttore 
-	 * @param parametri deve essere un ArrayList<Integer> di lunghezza 2.
+	 * @param parametro deve essere un ArrayList di Interi di lunghezza 2.
 	 * @throws IllegalArgumentException parametri non è del tipo richiesto. 
 	*/
 	public Filter2ParParent(Object parametro){
@@ -46,7 +46,7 @@ public class Filter2ParParent {
 
 	
 	/** Set
-	 * @param parametri deve essere un ArrayList<Integer> di lunghezza 2.
+	 * @param parametro deve essere un ArrayList di interi di lunghezza 2.
 	 * @throws IllegalArgumentException parametri non è del tipo richiesto. 
 	*/
 	

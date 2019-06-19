@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.regex.PatternSyntaxException;
 
 import com.esame.model.Record;
 
@@ -26,8 +25,7 @@ public class CsvParser {
 
 	/**
 	 * Effettua il parsing del file CSV, salvando ogni riga come oggetto Record.
-	 * @param Una Stringa con il nome (compreso percorso cartella), del file
-	 * in cui effettuare le operazioni.
+	 * @param csvFile il nome (compreso percorso cartella), del file in cui effettuare le operazioni.
 	 * @return L' intero ArrayList di Record.
 	*/
 	

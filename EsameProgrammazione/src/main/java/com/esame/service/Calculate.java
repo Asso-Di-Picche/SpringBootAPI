@@ -12,7 +12,7 @@ public class Calculate {
 
 	/**
 	 * Effettua il calcolo della deviazione standard.
-	 * @param arryint array di interi sul quale eseguire il calcolo.
+	 * @param arrayint ArrayList di interi sul quale eseguire il calcolo.
 	 * @param avg valor medio dell'arrayint.
 	 * @return risultato del calcolo.
 	*/
