@@ -44,10 +44,11 @@ public class CsvParser {
 			        String[] recordCorrente = line.split(";");	
 			 			        
 			        // crea un oggetto di tipo Record
+			        // elimina eventuali spazi vuoti all'inizio delle Stringhe
 			        Record oggettoRecord = new Record(
-			        							recordCorrente[0], 
-			        							recordCorrente[1],
-			        							recordCorrente[2],
+			        							recordCorrente[0].replaceAll("^\\s+",""), 
+			        							recordCorrente[1].replaceAll("^\\s+",""),
+			        							recordCorrente[2].replaceAll("^\\s+",""),
 												Integer.parseInt(recordCorrente[3]),
 												Integer.parseInt(recordCorrente[4]),
 												Integer.parseInt(recordCorrente[5]),
