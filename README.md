@@ -54,12 +54,12 @@ La segunete tabella mostra i filtri disponibili
 
 | Nome operatore | Descrizione                                |Esempio                                     |
 |----------------|--------------------------------------------|--------------------------------------------|
-|Greater         |maggiore (valido per campi numerici)        |{"EsAlbArr":{"Greater":100000} }            |
-|Less            |minore (valido per campi numerici)          |{"EsAlbArr":{"Less":100000} }               |
-|Included        |compreso tra  (valido per campi numerici)   |{"EsAlbArr":{"Included":[1000,5000]} }      |     
-|NotIncluded     |non compreso tra  (valido per campi numerici) |{"EsAlbArr":{"NotIncluded":[1000,5000]} } |
-|In              |trova una corrispondeza con i valori dell'array (valido per stringhe)|	"ProvDest":{"In":["Roma"]}|
-|Nin             |non trova una corrispondeza con i valori dell'array (valido per stringhe)|	"ProvDest":{"Nin":["Roma,"Viterbo"]}|
+|Greater         |maggiore (valido per campi numerici)        |{"EsAlbArr":{"Greater":100000}}            |
+|Less            |minore (valido per campi numerici)          |{"EsAlbArr":{"Less":100000}}               |
+|Included        |compreso tra  (valido per campi numerici)   |{"EsAlbArr":{"Included":[100,5000]}}      |     
+|NotIncluded     |non compreso tra  (valido per campi numerici) |{"EsAlbArr":{"NotIncluded":[100,5000]}} |
+|In              |trova una corrispondeza con i valori dell'array (valido per stringhe)|	{"ProvDest":{"In":["Roma"]}}|
+|Nin             |non trova una corrispondeza con i valori dell'array (valido per stringhe)|	{"ProvDest":{"Nin":["Roma","Viterbo"]}}|
 
 
 
