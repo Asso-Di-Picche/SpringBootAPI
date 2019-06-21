@@ -9,7 +9,7 @@ import com.esame.util.other.Filter1ParParent;
  * @author Marco Sebastianelli
  * @author Cristian Vitali
 */
-
+ 
 public class FilterTotEsRicPresGreater extends Filter1ParParent implements Filter {
 
 	

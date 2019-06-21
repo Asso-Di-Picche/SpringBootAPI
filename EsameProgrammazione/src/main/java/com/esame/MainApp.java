@@ -8,7 +8,7 @@ import com.esame.database.DatabaseClass;
  * @author Marco Sebastianelli
  * @author Cristian Vitali
 */
-
+ 
 @SpringBootApplication
 public class MainApp {
 
