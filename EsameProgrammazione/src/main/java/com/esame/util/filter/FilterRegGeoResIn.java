@@ -20,8 +20,8 @@ public class FilterRegGeoResIn extends FilterArrayStringParent implements Filter
 
 	public boolean filter(Record record) {
 		
-		for(String param : param) {
-			if(record.getRegGeoRes().equals(param)) {
+		for(String p : param) {
+			if(record.getRegGeoRes().equals(p)) {
 				return true;
 			}
 		}

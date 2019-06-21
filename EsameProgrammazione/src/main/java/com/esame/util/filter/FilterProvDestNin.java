@@ -20,8 +20,8 @@ public class FilterProvDestNin extends FilterArrayStringParent implements Filter
 
 	public boolean filter(Record record) {
 		
-		for(String param : param) {
-			if(record.getProvDest().equals(param)) {
+		for(String p : param) {
+			if(record.getProvDest().equals(p)) {
 				return false;
 			}
 		}

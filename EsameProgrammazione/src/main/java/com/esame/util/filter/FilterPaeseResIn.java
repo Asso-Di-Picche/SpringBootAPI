@@ -20,8 +20,8 @@ public class FilterPaeseResIn extends FilterArrayStringParent implements Filter 
 
 	public boolean filter(Record record) {
 		
-		for(String param : param) {
-			if(record.getPaeseRes().equals(param)) {
+		for(String p : param) {
+			if(record.getPaeseRes().equals(p)) {
 				return true;
 			}
 		}
