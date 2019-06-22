@@ -12,7 +12,7 @@ La nostra applicazione permette di richiedere mediante API REST (GET o POST) con
 * Restituzione delle statistiche sui dati di uno specifico campo.
 * Restituzione delle statistiche sui dati di uno specifico campo, su record filtrati.
 
-note: vedi sotto per come effettuare chiamate.
+note: [come effettuare richieste.](https://github.com/CriVitali/EsameProgrammazione#eseguire-richieste)
 
 <img src="https://aangrw.db.files.1drv.com/y4mEhRW6T5TB0O0Mho701IYnQXQdDOJF2mQIUPNw_R71E2z5FatOYllR78DkHytWX_s-z2WZ69ykeVfNwLCduu1MFWid4BNliwPp9FYPhB1qqdcoyDOqG2T03lKZzPiVdvYNbpL37gHcxiQJ5Eux9jGGmxijLTeBb1gtI7e4VUQezMYX_q2GLxltMmZADDv3Nse?width=1633&height=961&cropmode=none" width="500"/>
 
